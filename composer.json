@@ -1,0 +1,14 @@
+{
+  "name": "yourname/querylite",
+  "description": "A tiny PHP query builder / mini ORM for MySQL.",
+  "type": "library",
+  "require": {
+    "php": ">=8.1",
+    "ext-pdo": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "QueryLite\\": "src/"
+    }
+  }
+}
