@@ -27,7 +27,7 @@ show clean backend architecture skills in a portfolio.
 Clone the repository:
 
 ```bash
-git clone https://github.com/yourname/querylite.git
+git clone https://github.com/harkiratbajwa/querylite.git
 cd querylite
 composer install
 ```
@@ -35,7 +35,7 @@ composer install
 Or include it in another project via Composer:
 
 ```bash
-composer require yourname/querylite
+composer require harkiratbajwa/querylite
 ```
 
 ## Basic Usage
