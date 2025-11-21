@@ -1,28 +1,47 @@
-# QueryLite – Tiny PHP Query Builder
+# 📦 QueryLite – Lightweight PHP Query Builder & Mini ORM
 
-QueryLite is a small, educational **query builder / mini ORM** for PHP and MySQL.
-It is built to understand how ORMs like Eloquent work under the hood and to
-show clean backend architecture skills in a portfolio.
+**QueryLite** is a simple, elegant, and educational **PHP Query Builder / mini ORM** built from scratch.  
+It demonstrates core backend concepts such as query abstraction, prepared statements, fluent APIs, and database architecture — making it an excellent **portfolio project**.
 
-## Features
+## 🚀 Features
 
-- Simple static `DB` facade
-- `DB::table('users')->where(...)->get()` style syntax
-- Supports:
-  - `select`, `where`, `orWhere`, `whereIn`
-  - `orderBy`, `limit`, `offset`
-  - `insert`, `update`, `delete`
-  - `first()`, `find($id)`
-- Uses **prepared statements** (PDO) for safety
-- PSR-4 autoloading
+- 🔹 Fluent, chainable query builder  
+- 🔹 Supports `select`, `where`, `orWhere`, `whereIn`  
+- 🔹 Supports `orderBy`, `limit`, `offset`  
+- 🔹 CRUD operations:
+  - `insert()`
+  - `update()`
+  - `delete()`
+- 🔹 `first()` and `find(id)` helpers  
+- 🔹 PDO-powered prepared statements (SQL injection safe)  
+- 🔹 PSR-4 autoloading via Composer  
+- 🔹 Clean, minimal PHP 8+ codebase  
 
-## Requirements
+## 📁 Folder Structure
 
-- PHP 8.1+
-- MySQL
-- PDO extension (`ext-pdo`)
+```
+querylite/
+│── src/
+│   ├── Core/
+│   │    ├── Connection.php
+│   │    └── QueryBuilder.php
+│   └── DB.php
+│
+│── examples/
+│   └── basic-usage.php
+│
+│── composer.json
+│── README.md
+```
 
-## Installation
+## 🛠 Requirements
+
+- PHP **8.1+**
+- MySQL / MariaDB
+- PDO extension enabled  
+- Composer
+
+## ⚙️ Installation
 
 Clone the repository:
 
@@ -38,7 +57,7 @@ Or include it in another project via Composer:
 composer require harkiratbajwa/querylite
 ```
 
-## Basic Usage
+## 🧩 Basic Usage
 
 ```php
 <?php
@@ -47,31 +66,29 @@ require __DIR__ . '/vendor/autoload.php';
 
 use QueryLite\DB;
 
+// Connect to the database
 DB::connect([
     'host'     => '127.0.0.1',
     'database' => 'my_database',
     'username' => 'root',
     'password' => '',
-    'charset'  => 'utf8mb4',
 ]);
 
-// Get all active users
+// Example: Get all active users
 $users = DB::table('users')
     ->where('status', 'active')
     ->orderBy('created_at', 'desc')
     ->limit(10)
     ->get();
 
-// Insert
-$id = DB::table('users')->insert([
-    'name'       => 'John Doe',
-    'email'      => 'john@example.com',
-    'status'     => 'active',
-    'created_at' => date('Y-m-d H:i:s'),
-]);
+print_r($users);
+
+// Example: Find a user by ID
+$user = DB::table('users')->find(5);
+print_r($user);
 ```
 
-## Example Database Table
+## 📘 Example Database Table
 
 ```sql
 CREATE TABLE users (
@@ -83,11 +100,42 @@ CREATE TABLE users (
 );
 ```
 
-## Purpose
+## 🧪 Demo Script (Included)
 
-This library is intentionally small and not meant to replace full-featured ORMs.
-It is designed for:
+You can test QueryLite with:
 
-- Learning how query builders work
-- Showcasing PHP + PDO + SQL skills
-- Using as a base for experiments and side projects
+```
+php examples/basic-usage.php
+```
+
+This demonstrates:
+
+- Select  
+- Insert  
+- Find  
+- Update  
+- Delete  
+
+## 🎯 Why This Project Exists
+
+QueryLite was built to:
+
+- Understand how Query Builders & ORMs work internally  
+- Demonstrate backend engineering skills  
+- Build reusable PHP architecture  
+- Provide clear, readable source code for learning  
+
+Use it in:
+
+- Portfolio projects  
+- Learning PDO  
+- Practicing database abstraction  
+- Lightweight custom applications  
+
+## 📄 License
+
+MIT License — free to use, modify, and distribute.
+
+## 🤝 Contributing
+
+Pull requests are welcome!
