@@ -1,5 +1,5 @@
 {
-  "name": "yourname/querylite",
+  "name": "harkiratbajwa/querylite",
   "description": "A tiny PHP query builder / mini ORM for MySQL.",
   "type": "library",
   "require": {
